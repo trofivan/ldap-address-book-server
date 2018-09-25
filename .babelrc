@@ -1,5 +1,15 @@
 {
   "presets": [
-    "env"
+    [
+      "@babel/env",
+      {
+        "targets": {
+          "node": "current"
+        }
+      }
+    ]
+  ],
+  "plugins": [
+    "@babel/plugin-transform-async-to-generator"
   ]
 }
