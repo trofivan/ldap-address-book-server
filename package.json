@@ -1,0 +1,19 @@
+{
+  "name": "ldap-address-book-server",
+  "version": "0.0.1",
+  "description": "LDAP address book (server)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trofivan/ldap-address-book-server.git"
+  },
+  "author": "Ivan Trofimov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/trofivan/ldap-address-book-server/issues"
+  },
+  "homepage": "https://github.com/trofivan/ldap-address-book-server#readme"
+}
