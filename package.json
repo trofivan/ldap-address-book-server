@@ -2,7 +2,6 @@
   "name": "ldap-address-book-server",
   "version": "0.0.1",
   "description": "LDAP address book (server)",
-  "main": "index.js",
   "scripts": {
     "start": "node bundle/index.js",
     "build": "rimraf ./bundle && babel ./src -d ./bundle",
