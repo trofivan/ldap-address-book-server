@@ -1,14 +1,10 @@
 import Koa from 'koa';
-import Router from 'koa-router';
+import compose from 'koa-compose';
+
+import { routes } from './middlewares/router';
 
 const app = new Koa();
-const router = new Router();
 
-router.get('/', (ctx, next) => {
-  ctx.body = 'Hello World!';
-});
-
-app.use(router.routes());
-app.use(router.allowedMethods());
+app.use(compose([routes]));
 
 app.listen(3000);
