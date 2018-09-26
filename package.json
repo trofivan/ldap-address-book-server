@@ -1,6 +1,7 @@
 {
   "name": "ldap-address-book-server",
   "version": "0.0.1",
+  "private": true,
   "description": "LDAP address book (server)",
   "scripts": {
     "start": "node bundle/index.js",
