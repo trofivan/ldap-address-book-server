@@ -8,3 +8,4 @@ router
   });
 
 export const routes = router.routes();
+export const allowedMethods = router.allowedMethods();
