@@ -2,7 +2,7 @@ import Koa from 'koa';
 import compose from 'koa-compose';
 import config from 'config';
 
-import { routes, allowedMethods } from './middlewares/router';
+import {routes, allowedMethods} from './middlewares/router';
 import errors from './middlewares/error';
 
 const app = new Koa();
@@ -15,4 +15,5 @@ app.use(compose([
   allowedMethods
 ]));
 
+// eslint-disable-next-line no-console
 app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));
