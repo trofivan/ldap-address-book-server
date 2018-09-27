@@ -31,6 +31,7 @@
     "rimraf": "^2.6.2"
   },
   "dependencies": {
+    "config": "^2.0.1",
     "koa": "^2.5.3",
     "koa-compose": "^4.1.0",
     "koa-router": "^7.4.0"
