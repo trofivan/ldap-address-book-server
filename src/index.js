@@ -15,4 +15,4 @@ app.use(compose([
   allowedMethods
 ]));
 
-app.listen(PORT, () => console.log(`Running on http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));
