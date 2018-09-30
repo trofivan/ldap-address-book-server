@@ -1,18 +1,29 @@
+import ldapSearch from '../ldap/search';
+
 /**
  * @example curl -XGET http://localhost:3000/companies
  */
-export const getCompanies = async ctx => {
+export const getCompanies = async (ctx, next) => {
+  try {
+    const companies = await ldapSearch();
+    ctx.body = companies;
+  } catch (e) {
+    ctx.throw(503, e.message);
+  }
+  //const
 
-  ctx.body = [
-    {
-      id: 1,
-      name: 'Name 1'
-    },
-    {
-      id: 2,
-      name: 'Name 2'
-    }
-  ];
+  // next();
+
+  // ctx.body = [
+  //   {
+  //     id: 1,
+  //     name: 'Name 1'
+  //   },
+  //   {
+  //     id: 2,
+  //     name: 'Name 2'
+  //   }
+  // ];
 };
 
 /**

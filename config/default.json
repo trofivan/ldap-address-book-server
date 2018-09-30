@@ -1,9 +1,10 @@
 {
-  "server": {
+  "app": {
     "port": 3000
   },
   "ldap": {
-    "host": "domain.local",
-    "port": 1389
+    "url": "ldap://domain:3189",
+    "user": "user@domain.local",
+    "password": "password"
   }
 }
