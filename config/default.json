@@ -5,6 +5,6 @@
   "ldap": {
     "url": "ldap://domain:3189",
     "user": "user@domain.local",
-    "password": "password"
+    "password": "Pa$$w0rd"
   }
 }
