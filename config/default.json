@@ -3,8 +3,9 @@
     "port": 3000
   },
   "ldap": {
-    "url": "ldap://domain:3189",
-    "user": "user@domain.local",
-    "password": "Pa$$w0rd"
+    "url": "ldap://domain.local:3268",
+    "login": "login@domain.local",
+    "password": "Pa$$w0rd",
+    "searchBase": "CN=Users,DC=domain,DC=local"
   }
 }
