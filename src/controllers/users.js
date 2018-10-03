@@ -17,5 +17,5 @@ export const getUsers = async (ctx) => {
 /**
  * @example curl -XGET http://localhost:3000/users/CN=UserName,OU=Users,DC=domain,DC=local
  */
-export const getUser = async (dn) => {
+export const getUser = async () => {
 };

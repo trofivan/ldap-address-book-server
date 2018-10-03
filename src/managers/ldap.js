@@ -1,6 +1,6 @@
 import LDAP from 'ldapjs';
 
-const DEFAULT_LDAP_FILTER = "|(&(objectCategory=person)(objectClass=user)(!(userAccountControl:1.2.840.113556.1.4.803:=2)))(objectClass=contact)";
+const DEFAULT_LDAP_FILTER = '|(&(objectCategory=person)(objectClass=user)(!(userAccountControl:1.2.840.113556.1.4.803:=2)))(objectClass=contact)';
 const DEFAULT_SEARCH_ATTRIBUTES = ['dn', 'displayName', 'mail', 'telephoneNumber', 'ipPhone', 'mobile', 'title', 'company', 'department'];
 
 /**
@@ -35,7 +35,7 @@ export const getUsers = ({url, login, password, searchBase, attributes = [], lda
 
         const searchOptions = {
           attributes: [...DEFAULT_SEARCH_ATTRIBUTES, ...attributes],
-          scope: "sub",
+          scope: 'sub',
           filter: ldapFilter,
           paged: true
         };
