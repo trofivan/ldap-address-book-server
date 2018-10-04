@@ -1,11 +1,12 @@
+import { getCompanies as getCompaniesModel } from '../models/companies';
+
 /**
  * @example curl -XGET http://localhost:3000/companies
  */
-export const getCompanies = async () => {
-};
-
-/**
- * @example curl -XGET http://localhost:3000/companies/1
- */
-export const getCompany = async () => {
+export const getCompanies = async (ctx) => {
+  try {
+    ctx.body = await getCompaniesModel();
+  } catch (err) {
+    ctx.throw(503, err);
+  }
 };

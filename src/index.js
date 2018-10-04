@@ -2,7 +2,7 @@ import Koa from 'koa';
 import compose from 'koa-compose';
 import config from 'config';
 
-import {routes, allowedMethods} from './middlewares/router';
+import { routes, allowedMethods } from './middlewares/router';
 import errors from './middlewares/error';
 
 const PORT = config.get('app.port');
