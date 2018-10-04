@@ -8,7 +8,7 @@ export const getCompanies = async () => {
   const attributes = ['company'];
   const ldapData = await getLdapData({ ...ldapOptions, ldapFilter, attributes });
   const companies = ldapData.reduce((acc, current) => {
-    const companyName = current.company ? current.company.trim() : 'Undefined Company';
+    const companyName = typeof current.company === 'string' ? current.company.trim() : 'Unknown';
 
     return acc[companyName] ? {
       ...acc,
