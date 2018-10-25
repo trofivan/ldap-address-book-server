@@ -1,19 +1,31 @@
-import Koa from 'koa';
-import compose from 'koa-compose';
-import config from 'config';
-import cors from '@koa/cors';
+import cluster from 'cluster';
+import path from 'path';
+import os from 'os';
+import config from 'config'
 
-import { routes, allowedMethods } from './middlewares/router';
-import errors from './middlewares/error';
+const workerRestartTimeout = config.get('cluster.workerRestartTimeout');
+const numCPUs = os.cpus().length;
+const pathToApp = path.join(__dirname, 'app.js');
 
-const PORT = config.get('app.port');
-const app = new Koa();
+console.log(`Master pid=${process.pid} is running.`);
 
-app.use(compose([
-  cors(),
-  errors,
-  routes,
-  allowedMethods
-]));
-// eslint-disable-next-line no-console
-app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));
+// Configure Master process
+cluster.setupMaster({ exec: pathToApp });
+
+// Fork workers on each CPU core
+for (let i = 0; i < numCPUs; i++) {
+  cluster.fork();
+}
+
+cluster.on('listening', (worker) => console.log(`Worker pid=${worker.process.pid} is connected.`));
+
+cluster.on('fork', (worker) => console.log(`Worker pid=${worker.process.pid} is forked.`));
+
+// Restart worker with timeout if die
+cluster.on('exit', (worker, code, signal) => {
+  console.error(`Worker pid=${worker.process.pid} is die. Code: ${code || signal}. Restarting after ${workerRestartTimeout}ms...`);
+
+  setTimeout(() => {
+    cluster.fork()
+  }, workerRestartTimeout);
+});

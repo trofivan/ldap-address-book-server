@@ -1,4 +1,7 @@
 {
+  "cluster": {
+    "workerRestartTimeout": 5000
+  },
   "app": {
     "port": 3000
   },

@@ -4,7 +4,7 @@
   "private": true,
   "description": "LDAP address book (server)",
   "scripts": {
-    "start": "node bundle/index.js",
+    "start": "node bundle",
     "build": "rimraf ./bundle && babel ./src -d ./bundle",
     "lint": "eslint ./src",
     "lint:fix": "eslint --fix ./src",
